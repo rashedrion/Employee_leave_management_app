@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1 class="text-center">Leave Details</h1>
+    <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{leave_details.employee}}</h5>
+          <p class="card-text">{{leave_details.type}} for {{leave_details.requested_days}} days</p>
+          <p>From - {{leave_details.start_date|date:"D d M Y"}}</p>
+          <p>To - {{leave_details.end_date|date:"D d M Y"}}</p>
+          <a href="#" class="btn btn-primary">{{leave_details.status}}</a>
+        </div>
+        <div class="card-footer text-muted">
+          <a class="badge bg-warning" href="{% url 'edit-leave' leave_details.id %}">edit</a>
+
+          {{ leave_details.applied_date }}
+
+          <a class="badge bg-danger" href="{% url 'delete-leave' leave_details.id %}">delete</a>
+        </div>
+      </div>
+    
+{% endblock %}

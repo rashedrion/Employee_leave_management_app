@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+
+{% block content %}
+    <h1 class="text-center">Leave Requests</h1>
+    {% for leave in all_leave %}
+    <a href="{% url 'leave-details' leave.id %}">
+
+        <div class="card border-primary mb-3">
+            <div class="card-header">{{ leave.applied_date|date }}</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">{{ leave.employee }}</h5>
+                <p class="card-text">{{ leave.type }}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+{% endblock %}
